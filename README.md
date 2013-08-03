@@ -222,6 +222,20 @@ by the `data_bag` recipe to use as a database of user accounts.
 
 The default is `"users"`.
 
+### <a name="attributes-data-bag-encrypted"></a> data_bag_encrypted
+
+Indicates whether data bag is encrypted or not.
+
+The default is `"false"`.
+
+### <a name="attributes-data-bag-encryption_key"></a> data_bag_encryption_key
+
+Encryption key to use, if `data_bag_encrypted` attribute is set to `true`.
+Key defined in `encrypted_data_bag_secret` attribute inside `knife.rb` will
+be used if case of `nil` value.
+
+The default is `nil`.
+
 ### <a name="attributes-user-array-node-attr"></a> user_array_node_attr
 
 The node attributes containing an array of users to be managed. If a nested
