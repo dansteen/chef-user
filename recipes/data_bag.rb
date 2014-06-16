@@ -33,7 +33,14 @@ groups = {}
 
 # only manage the subset of users defined
 Array(user_array).each do |i|
-  u = data_bag_item(bag, i.gsub(/[.]/, '-'))
+  name = i.gsub(/[.]/, '-')
+
+  u = if node['user']['data_bag_encrypted']
+    Chef::EncryptedDataBagItem.load(bag, name, node['user']['data_bag_encryption_key'])
+  else
+    data_bag_item(bag, name)
+  end
+
   username = u['username'] || u['id']
 
   user_account username do

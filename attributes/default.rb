@@ -45,6 +45,8 @@ default['user']['ssh_keygen']         = "true"
 default['user']['non_unique']         = "false"
 
 default['user']['data_bag_name']        = "users"
+default['user']['data_bag_encrypted']      = false
+default['user']['data_bag_encryption_key'] = nil
 default['user']['user_array_node_attr'] = "users"
 default['user']['on_group_missing']     = "create"
 
